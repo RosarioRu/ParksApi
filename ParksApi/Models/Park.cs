@@ -1,3 +1,5 @@
+using System;
+
 namespace ParksApi.Models
 {
     public class Park
@@ -7,7 +9,7 @@ namespace ParksApi.Models
         public string City { get; set; }
         public string State { get; set; }
         public DateTime DateEstablished { get; init; }
-        public int AreaInAcres { get; set}
+        public int AreaInAcres { get; set; }
     } 
 }
 
