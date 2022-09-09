@@ -10,6 +10,7 @@ namespace ParksApi.Controllers
   [ApiController]
   public class ParksController : ControllerBase
   {
+
     private readonly ParksApiContext _db;
 
     public ParksController(ParksApiContext db)
@@ -33,5 +34,21 @@ namespace ParksApi.Controllers
 
       return CreatedAtAction("Post", new { id = park.ParkId }, park);
     }
+
+    //Get api/Parks/{id}
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Park>> GetPark (int id)
+    {
+      var park = await _db.Parks.FindAsync(id);
+
+      if (park == null)
+      {
+        return NotFound();
+      }
+
+      return park;
+    }
+
+
   }
 }
