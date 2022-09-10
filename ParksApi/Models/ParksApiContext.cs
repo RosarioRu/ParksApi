@@ -27,11 +27,11 @@ namespace ParksApi.Models
 
           new Park {ParkId = 6, ParkName = "Dry Tortugas", CityOrClosestCity = "Key West", State = "Florida", DateEstablished = new DateTime(1992, 10, 26), AreaInAcres = 64701.22, StateOrNational = "National Park"},
 
-          new Park {ParkId = 7, ParkName = "Catherine Creek State Park", CityOrClosestCity = "Union", State = "Oregon", DateEstablished = new DateTime(1932), AreaInAcres = 168, StateOrNational = "State Park"},
+          new Park {ParkId = 7, ParkName = "Catherine Creek State Park", CityOrClosestCity = "Union", State = "Oregon", DateEstablished = new DateTime(1932, 1, 1), AreaInAcres = 168, StateOrNational = "State Park"},
 
-          new Park {ParkId = 8, ParkName = "Wallowa Lake State Park", CityOrClosestCity = "Joseph", State = "Oregon", DateEstablished = new DateTime(1941), AreaInAcres = 165, StateOrNational = "State Park"},
+          new Park {ParkId = 8, ParkName = "Wallowa Lake State Park", CityOrClosestCity = "Joseph", State = "Oregon", DateEstablished = new DateTime(1941, 1, 1), AreaInAcres = 165, StateOrNational = "State Park"},
 
-          new Park {ParkId = 9, ParkName = "Range Pond", CityOrClosestCity = "Poland", State = "Maine", DateEstablished = new DateTime(1965), AreaInAcres = 740, StateOrNational = "State Park"},
+          new Park {ParkId = 9, ParkName = "Range Pond", CityOrClosestCity = "Poland", State = "Maine", DateEstablished = new DateTime(1965, 1, 1), AreaInAcres = 740, StateOrNational = "State Park"},
 
           new Park {ParkId = 10, ParkName = "Big Bend", CityOrClosestCity = "Terlingua", State = "Texas", DateEstablished = new DateTime(1944, 6, 12), AreaInAcres = 801163.21, StateOrNational = "National Park"}
         );
