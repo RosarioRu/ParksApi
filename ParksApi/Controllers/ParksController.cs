@@ -85,37 +85,22 @@ namespace ParksApi.Controllers
 
     // PATCH: api/Parks/{id}
     [HttpPatch("{id}")]
-    public IActionResult Patch(int id, [FromBody] JsonPatchDocument<Park> patchParkToPatch)
+    public async Task<IActionResult> Patch(int id, [FromBody] JsonPatchDocument<Park> patchParkToPatch)
     {
-      var parkToPatch = Parks.FirstOrDefault(park => park.Id == id);
- 
+      var parkToPatch = _db.Parks.FirstOrDefault(e => e.ParkId == id);
+
       if (parkToPatch == null)
       {
         return NotFound();
       }
- 
-      patchParkToPatch.ApplyTo(parkToPatch, ModelState); // Must have Microsoft.AspNetCore.Mvc.NewtonsoftJson installed
+
+      patchParkToPatch.ApplyTo(parkToPatch, ModelState);
+      
+      _db.Entry(parkToPatch).State = EntityState.Modified;
+      await _db.SaveChangesAsync();
     
       return Ok(parkToPatch);
     }
-
-
-    // // PATCH: api/Parks/{id}
-    // [HttpPatch("{id}")]
-    // public async Task<IActionResult> Patch(int id)
-    // { 
-    //   if (!ParkExists(id))
-    //   {
-    //     return NotFound();
-    //   }
-    //   else
-    //   {
-    //   var parkToPatch = await _db.Parks.FindAsync(id);
-    //   return (parkToPatch;
-    //   }
-    
-    // }
-
 
     //Method to check if a Park is already in System
     private bool ParkExists(int id)

@@ -24,7 +24,7 @@ namespace ParksApi
         {
             services.AddDbContext<ParksApiContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();//added newtonJson to attempt to use PATCH.
             //keeping swagger for now:
             services.AddSwaggerGen(c =>
             {
