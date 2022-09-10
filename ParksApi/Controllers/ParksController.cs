@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
+using Microsoft.AspNetCore.JsonPatch;
+
 
 namespace ParksApi.Controllers
 {
@@ -79,6 +81,41 @@ namespace ParksApi.Controllers
 
       return NoContent();
     }
+
+
+    // PATCH: api/Parks/{id}
+    [HttpPatch("{id}")]
+    public IActionResult Patch(int id, [FromBody] JsonPatchDocument<Park> patchParkToPatch)
+    {
+      var parkToPatch = Parks.FirstOrDefault(park => park.Id == id);
+ 
+      if (parkToPatch == null)
+      {
+        return NotFound();
+      }
+ 
+      patchParkToPatch.ApplyTo(parkToPatch, ModelState); // Must have Microsoft.AspNetCore.Mvc.NewtonsoftJson installed
+    
+      return Ok(parkToPatch);
+    }
+
+
+    // // PATCH: api/Parks/{id}
+    // [HttpPatch("{id}")]
+    // public async Task<IActionResult> Patch(int id)
+    // { 
+    //   if (!ParkExists(id))
+    //   {
+    //     return NotFound();
+    //   }
+    //   else
+    //   {
+    //   var parkToPatch = await _db.Parks.FindAsync(id);
+    //   return (parkToPatch;
+    //   }
+    
+    // }
+
 
     //Method to check if a Park is already in System
     private bool ParkExists(int id)
