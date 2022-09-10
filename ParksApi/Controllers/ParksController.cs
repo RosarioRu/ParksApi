@@ -102,6 +102,23 @@ namespace ParksApi.Controllers
       return Ok(parkToPatch);
     }
 
+    // DELETE: api/Parks/{id}
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeletePark(int id)
+    {
+      // var parkToDelete = await _db.Parks.FindAsync(id);
+      // if (parkToDelete == null)
+      if (!(ParkExists(id)))
+      {
+        return NotFound();
+      }
+
+      _db.Parks.Remove(await _db.Parks.FindAsync(id));
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
+
     //Method to check if a Park is already in System
     private bool ParkExists(int id)
     {
