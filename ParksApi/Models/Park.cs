@@ -12,7 +12,7 @@ namespace ParksApi.Models
         public string ParkName { get; set; }
 
         [Required]
-        public string City { get; set; }
+        public string CityOrClosestCity { get; set; }
 
         [Required]
         [StringLength(12)]
@@ -22,7 +22,10 @@ namespace ParksApi.Models
         public DateTime DateEstablished { get; init; }
 
         [Required]
-        public int AreaInAcres { get; set; }
+        public double AreaInAcres { get; set; }
+
+        [Required]
+        public string StateOrNational { get; set; }
     } 
 }
 
