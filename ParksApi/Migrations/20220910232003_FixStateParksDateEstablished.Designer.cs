@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ParksApi.Models;
 
 namespace ParksApi.Migrations
 {
     [DbContext(typeof(ParksApiContext))]
-    partial class ParksApiContextModelSnapshot : ModelSnapshot
+    [Migration("20220910232003_FixStateParksDateEstablished")]
+    partial class FixStateParksDateEstablished
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace ParksApi.Migrations
                     b.HasData(
                         new
                         {
-                            ParkId = 11,
+                            ParkId = 1,
                             AreaInAcres = 4740911.1600000001,
                             CityOrClosestCity = "Denali Park",
                             DateEstablished = new DateTime(1917, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -63,7 +65,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 12,
+                            ParkId = 2,
                             AreaInAcres = 183224.04999999999,
                             CityOrClosestCity = "Klamath Falls",
                             DateEstablished = new DateTime(1902, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -73,7 +75,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 13,
+                            ParkId = 3,
                             AreaInAcres = 310044.35999999999,
                             CityOrClosestCity = "Moose",
                             DateEstablished = new DateTime(1929, 2, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -83,7 +85,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 14,
+                            ParkId = 4,
                             AreaInAcres = 922649.41000000003,
                             CityOrClosestCity = "Port Angeles",
                             DateEstablished = new DateTime(1938, 6, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -93,7 +95,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 15,
+                            ParkId = 5,
                             AreaInAcres = 1013126.39,
                             CityOrClosestCity = "Kalispell",
                             DateEstablished = new DateTime(1910, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -103,7 +105,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 16,
+                            ParkId = 6,
                             AreaInAcres = 64701.220000000001,
                             CityOrClosestCity = "Key West",
                             DateEstablished = new DateTime(1992, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -113,7 +115,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 17,
+                            ParkId = 7,
                             AreaInAcres = 168.0,
                             CityOrClosestCity = "Union",
                             DateEstablished = new DateTime(1932, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -123,7 +125,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 18,
+                            ParkId = 8,
                             AreaInAcres = 165.0,
                             CityOrClosestCity = "Joseph",
                             DateEstablished = new DateTime(1941, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -133,7 +135,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 19,
+                            ParkId = 9,
                             AreaInAcres = 740.0,
                             CityOrClosestCity = "Poland",
                             DateEstablished = new DateTime(1965, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -143,7 +145,7 @@ namespace ParksApi.Migrations
                         },
                         new
                         {
-                            ParkId = 20,
+                            ParkId = 10,
                             AreaInAcres = 801163.20999999996,
                             CityOrClosestCity = "Terlingua",
                             DateEstablished = new DateTime(1944, 6, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
