@@ -28,7 +28,7 @@ namespace ParksApi
             //keeping swagger for now:
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksApi", Version = "V1", Description = "API for returning State and National Parks" });
             });
 
         }
@@ -42,7 +42,7 @@ namespace ParksApi
 
                 //keeping swagger for now:
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksApi V1"));
             }
 
             // app.UseHttpsRedirection(); //commented out to ensure browser doesn't prevent access to site and slow things down while in development
