@@ -23,6 +23,7 @@ namespace ParksApi.Controllers
     }
 
     // GET api/Parks
+    ///<summary>Returns a list of all the Parks in the database, or only those that meet search criteria when it is provided</summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get(string name, string city, string state, int year, double acres, string type)
     {
@@ -55,9 +56,7 @@ namespace ParksApi.Controllers
     }
 
     // POST api/Parks
-    ///<summary> 
-    ///Adds a Park to the database 
-    ///</summary>
+    ///<summary>Adds a Park to the database</summary>
     [HttpPost]
     public async Task<ActionResult<Park>> Post(Park park)
     {
@@ -68,6 +67,7 @@ namespace ParksApi.Controllers
     }
 
     //Get api/Parks/{id}
+    ///<summary>Returns a specific Park that matches provided ID#</summary>
     [HttpGet("{id}")]
     public async Task<ActionResult<Park>> GetPark (int id)
     {
@@ -82,6 +82,7 @@ namespace ParksApi.Controllers
     }
 
     // PUT: api/Parks/{id}
+    ///<summary>Updates the entire entry for a specific Park</summary>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     { 
@@ -113,6 +114,7 @@ namespace ParksApi.Controllers
 
 
     // PATCH: api/Parks/{id}
+    ///<summary>Partially updates a specific Park</summary>
     [HttpPatch("{id}")]
     public async Task<IActionResult> Patch(int id, [FromBody] JsonPatchDocument<Park> patchParkToPatch)
     {
@@ -132,6 +134,7 @@ namespace ParksApi.Controllers
     }
 
     // DELETE: api/Parks/{id}
+    ///<summary>Deletes the specific Park that matches the provided ID#</summary>
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeletePark(int id)
     {
