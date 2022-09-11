@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
 using Microsoft.AspNetCore.JsonPatch;
+using System;
 
 
 namespace ParksApi.Controllers
@@ -23,9 +24,34 @@ namespace ParksApi.Controllers
 
     // GET api/Parks
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Park>>> Get()
+    public async Task<ActionResult<IEnumerable<Park>>> Get(string name, string city, string state, int year, double acres, string type)
     {
-      return await _db.Parks.ToListAsync();
+      var query = _db.Parks.AsQueryable();
+      if (name != null)
+      {
+        query = query.Where(e => e.ParkName == name);
+      }
+      if (city != null)
+      {
+        query = query.Where(e => e.CityOrClosestCity == city);
+      }
+      if (state != null)
+      {
+        query = query.Where(e => e.State == state);
+      }
+      if (year >0)
+      {
+        query = query.Where(e => e.DateEstablished.Year == year);
+      }
+      if (acres > 0)
+      {
+        query = query.Where(e => e.AreaInAcres == acres);
+      }
+      if (type != null)
+      {
+        query = query.Where(e => e.StateOrNational == type);
+      }
+      return await query.ToListAsync();
     }
 
     // POST api/Parks
