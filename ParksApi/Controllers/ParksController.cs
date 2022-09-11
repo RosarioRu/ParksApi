@@ -55,6 +55,9 @@ namespace ParksApi.Controllers
     }
 
     // POST api/Parks
+    ///<summary> 
+    ///Adds a Park to the database 
+    ///</summary>
     [HttpPost]
     public async Task<ActionResult<Park>> Post(Park park)
     {
