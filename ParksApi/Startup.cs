@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
 using Microsoft.OpenApi.Models; // for swagger
+using System.IO; //for using Path, I think...
+using System; //for using AppContext, I think...
 
 
 
@@ -29,11 +31,18 @@ namespace ParksApi
             //keeping swagger for now:
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksApi", Version = "V1", Description = "API for returning State and National Parks" });
+                c.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                  Title = "ParksApi", 
+                  Version = "V1", 
+                  Description = "API for returning State and National Parks" 
+                });
             // });
 
                 //attempting to add xml comments to swagger
-                
+                var filePath = Path.Combine(AppContext.BaseDirectory, "ParksApi.xml");
+                c.IncludeXmlComments(filePath);
+            
             });
 
         }
@@ -44,13 +53,18 @@ namespace ParksApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-
-                //keeping swagger for now:
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksApi V1"));
+            }
+            else
+            {
+                app.UseHsts();
             }
 
-            // app.UseHttpsRedirection(); //commented out to ensure browser doesn't prevent access to site and slow things down while in development
+            //keeping swagger for now:
+            app.UseSwagger();
+            app.UseSwaggerUI(c => 
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksApi V1");
+            });
 
             app.UseRouting();
 
@@ -60,6 +74,8 @@ namespace ParksApi
             {
                 endpoints.MapControllers();
             });
+
+            // app.UseHttpsRedirection(); //commented out to ensure browser doesn't prevent access to site and slow things down while in development  
         }
     }
 }
