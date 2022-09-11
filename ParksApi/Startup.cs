@@ -6,8 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using ParksApi.Models;
 using Microsoft.OpenApi.Models; // for swagger
-using System.IO; //for using Path, I think...
-using System; //for using AppContext, I think...
+using System.IO; //for using Path
+using System; //for using AppContext.
 
 
 
@@ -28,7 +28,7 @@ namespace ParksApi
             services.AddDbContext<ParksApiContext>(opt =>
                 opt.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
             services.AddControllers().AddNewtonsoftJson();//added newtonJson to attempt to use PATCH.
-            //keeping swagger for now:
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo 
@@ -39,7 +39,7 @@ namespace ParksApi
                 });
             // });
 
-                //attempting to add xml comments to swagger
+                //attempting to add xml comments to swagger, below we tell it to use xml file 
                 var filePath = Path.Combine(AppContext.BaseDirectory, "ParksApi.xml");
                 c.IncludeXmlComments(filePath);
             
@@ -59,7 +59,7 @@ namespace ParksApi
                 app.UseHsts();
             }
 
-            //keeping swagger for now:
+            //keeping swagger
             app.UseSwagger();
             app.UseSwaggerUI(c => 
             {
