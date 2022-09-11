@@ -8,6 +8,7 @@ using ParksApi.Models;
 using Microsoft.OpenApi.Models; // for swagger
 
 
+
 namespace ParksApi
 {
     public class Startup
@@ -29,6 +30,10 @@ namespace ParksApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksApi", Version = "V1", Description = "API for returning State and National Parks" });
+            // });
+
+                //attempting to add xml comments to swagger
+                
             });
 
         }

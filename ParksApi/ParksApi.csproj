@@ -4,6 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <!-- attempting to add xml comments -->
+  <!-- <PropertyGroup>
+  <DocumentationFile>bin\$(Configuration)\net5.0\ParksApi.xml</DocumentationFile>
+  </PropertyGroup> -->
+  <!-- <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup> -->
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.3" />
