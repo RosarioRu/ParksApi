@@ -48,7 +48,7 @@ _The Parks RESTful API has full CRUD functionality. The API will return park inf
 
 * _Routes and required parameters can be viewed on Swagger: https://localhost:5001/swagger/index.html_*
 
-![Alt text](ParksApi\Untitled.jpg "Optional Title")
+![Alt text](ParksApi\Untitled.jpg?raw=ture "Optional Title")
 
 
 ## Known Bugs
