@@ -55,6 +55,9 @@ _The Parks RESTful API has full CRUD functionality. The API will return park inf
 
 ## Known Bugs
 
+*_XLM comments are not conscise/clean looking in the controller file. Need to edit_*
+
+*_Search by acreage is too strict -- client must enter correct and exact double so it must be edited to be more broad, perhaps to search for parks above or below a certain acreage, which is more realistic to what someone would be searching for._*
 
 ## License
 
