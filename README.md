@@ -38,7 +38,17 @@ _The Parks RESTful API has full CRUD functionality. The API will return park inf
 
 * _Navigate to the ParksApi directory in the project and run the command [dotnet restore, then dotnet build]._
 
+* _Next run the command [dotnet ef database update] to re-create the database with all it's migrations in MySql._
+
 * _While still in the ParksApi directory, run the command [dotnet run] to run the application using a localhost server._
+
+* _You can now use Postman (http://localhost:5000/api/parks) or Swagger (https://localhost:5001/swagger/index.html) to use the API_*
+
+## Routes/Endpoints
+
+* _Routes and required parameters can be viewed on Swagger: https://localhost:5001/swagger/index.html_*
+
+![Alt text](ParksApi\Untitled.jpg "Optional Title")
 
 
 ## Known Bugs
