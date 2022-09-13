@@ -65,6 +65,30 @@ namespace ParksApi.Controllers
 
     // POST api/Parks
     ///<summary>Adds a Park to the database</summary>
+      ///<remarks>
+      ///Sample Request:
+      ///POST/api/Parks
+      ///<example>
+      ///
+      ///{
+      ///
+      ///     "parkName": "Death Valley",
+      ///
+      ///     "cityOrClosestCity": "Pahrump",
+      ///
+      ///     "state": "California",
+      ///
+      ///     "dateEstablished": "1994-10-31T00:00:00",
+      ///
+      ///     "areaInAcres": 3408395.63,
+      ///
+      ///     "stateOrNational": "National Park"
+      ///
+      ///} 
+      ///</example> 
+      /// 
+      ///Do not include parkId
+    ///</remarks>
     [HttpPost]
     public async Task<ActionResult<Park>> Post(Park park)
     {
@@ -91,6 +115,30 @@ namespace ParksApi.Controllers
 
     // PUT: api/Parks/{id}
     ///<summary>Updates the entire entry for a specific Park</summary>
+    ///<remarks>
+      ///Sample Request:
+      ///PUT/api/Parks/11
+      ///<example>
+      ///
+      ///{
+      ///
+      ///     "parkId": 11,
+      ///
+      ///     "parkName": "Denali",
+      ///
+      ///     "cityOrClosestCity": "Denali Park",
+      ///
+      ///     "state": "Alaska",
+      ///
+      ///     "dateEstablished": "1917-02-26T00:00:00",
+      ///
+      ///     "areaInAcres": 4740911.16,
+      ///
+      ///     "stateOrNational": "National Park"
+      ///
+      ///} 
+      ///</example> 
+    ///</remarks>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(int id, Park park)
     { 
@@ -123,6 +171,24 @@ namespace ParksApi.Controllers
 
     // PATCH: api/Parks/{id}
     ///<summary>Partially updates a specific Park</summary>
+    ///<remarks>
+      ///Sample Request:
+      ///PATCH/api/Parks/11
+      ///<example>
+      ///
+      ///[ {
+      ///
+      ///     "op": "Replace",
+      ///
+      ///     "path": "parkName",
+      ///
+      ///     "value": "DENALI" 
+      ///
+      ///   } ]
+      ///</example>
+      ///
+      /// This will replace the parkName property with the provided value: "DENALI"
+    ///</remarks>
     [HttpPatch("{id}")]
     public async Task<IActionResult> Patch(int id, [FromBody] JsonPatchDocument<Park> patchParkToPatch)
     {
