@@ -10,6 +10,7 @@ using System;
 
 namespace ParksApi.Controllers
 {
+  [Produces("application/json")]
   [Route("api/[controller]")]
   [ApiController]
   public class ParksController : ControllerBase
@@ -24,13 +25,20 @@ namespace ParksApi.Controllers
 
     // GET api/Parks
     ///<summary>Returns a list of all the Parks in the database, or only those that meet search criteria when it is provided</summary>
+    ///<returns>A list of Parks</returns>
+    ///<param name="name">name of Park</param>
+    ///<param name="city">city where park is located, or closest city if Park is not located in a city</param>
+    ///<param name="state">state where park is located</param>
+    ///<param name="year">year when Park was established</param>
+    ///<param name="acres">park acreage</param>
+    ///<param name="type">enter: National Park, or, State Park</param>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Park>>> Get(string name, string city, string state, int year, double acres, string type)
     {
       var query = _db.Parks.AsQueryable();
       if (name != null)
       {
-        query = query.Where(e => e.ParkName == name);
+        query = query.Where(e => e.ParkName.Contains(name)); //using contains over a perfect match in case client only enters part of the name
       }
       if (city != null)
       {
@@ -50,7 +58,7 @@ namespace ParksApi.Controllers
       }
       if (type != null)
       {
-        query = query.Where(e => e.StateOrNational == type);
+        query = query.Where(e => e.StateOrNational.Contains(type));
       }
       return await query.ToListAsync();
     }
